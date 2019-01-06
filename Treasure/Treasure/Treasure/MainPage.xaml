@@ -10,9 +10,17 @@
         <Entry Placeholder="Login" HorizontalOptions="Center" WidthRequest="300"  VerticalOptions="Center"/>
         <Entry Placeholder="Password" HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center"/>
         <Button  Text="LOGIN" HorizontalOptions="Center" WidthRequest="300"
-           VerticalOptions="Center" />
+           VerticalOptions="Center" Clicked="LoginButton_Click" />
+        
         <Button x:Name="Register" Text="REGISTER" HorizontalOptions="Center" WidthRequest="300"
-           VerticalOptions="Center" Clicked="RegisterButton_Click" />
+           VerticalOptions="End" Clicked="RegisterButton_Click" />
+        <StackLayout>
+  
+      <Label Text="Remember Me" HorizontalOptions="Center" VerticalOptions="Center" />
+      <Switch IsToggled="True" HorizontalOptions="Center" VerticalOptions="Center" />    
+  
+        </StackLayout>
+        
         
     </StackLayout>
 

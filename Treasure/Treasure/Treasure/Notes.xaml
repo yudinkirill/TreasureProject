@@ -4,11 +4,7 @@
              x:Class="Treasure.Notes">
     <ContentPage.Content>
         <StackLayout>
-            <FlexLayout>
-                <Image Source="Logo.png" HorizontalOptions="Center"  WidthRequest="70" />
-                <Entry Placeholder="Login" HorizontalOptions="Center" WidthRequest="300"  VerticalOptions="Center"/>
-            </FlexLayout>
-            
+            <FlexLayout></FlexLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

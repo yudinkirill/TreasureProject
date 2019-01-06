@@ -7,8 +7,8 @@
             <Image Source="Logo.png" HorizontalOptions="Center"  WidthRequest="70" />
             <Entry Placeholder="Login" HorizontalOptions="Center" WidthRequest="300"  VerticalOptions="Center"/>
             <Entry Placeholder="Password" HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center"/>
-            <Button x:Name="RegisterButton" Text="REGISTER" HorizontalOptions="Center" WidthRequest="300"
-           VerticalOptions="Center" Clicked=""/>
+            <Button x:Name="RegisterB" Text="REGISTER" HorizontalOptions="Center" WidthRequest="300"
+           VerticalOptions="End" />
         </StackLayout>
   </ContentPage.Content>
 </ContentPage>

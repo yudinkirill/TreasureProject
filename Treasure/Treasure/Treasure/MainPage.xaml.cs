@@ -22,5 +22,9 @@ namespace Treasure
            await Navigation.PushAsync(new Register());
         }
 
+        private async void LoginButton_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Notes());
+        }
     }
 }

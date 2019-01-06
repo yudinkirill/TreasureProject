@@ -9,6 +9,7 @@ namespace TreasureServer.DataBase
 {
     public class Note
     {
+        
         public int NoteId { get; set; }
         public bool Pin { get; set; }
         public string NoteHeader { get; set; }
