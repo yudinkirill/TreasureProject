@@ -7,8 +7,8 @@
     <StackLayout VerticalOptions="CenterAndExpand">
         <!-- Place new controls here -->
         <Image Source="Logo.png" HorizontalOptions="Center"  WidthRequest="70" />
-        <Entry Placeholder="Login" HorizontalOptions="Center" WidthRequest="300"  VerticalOptions="Center"/>
-        <Entry Placeholder="Password" HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center"/>
+        <Entry x:Name="LoginE" Placeholder="Login" HorizontalOptions="Center" WidthRequest="300"  VerticalOptions="Center"/>
+        <Entry x:Name="PasswordE" Placeholder="Password" HorizontalOptions="Center" WidthRequest="300" VerticalOptions="Center"/>
         <Button  Text="LOGIN" HorizontalOptions="Center" WidthRequest="300"
            VerticalOptions="Center" Clicked="LoginButton_Click" />
         

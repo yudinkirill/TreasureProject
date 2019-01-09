@@ -4,7 +4,7 @@
              x:Class="Treasure.Notes">
     <ContentPage.Content>
         <StackLayout>
-            <FlexLayout></FlexLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
