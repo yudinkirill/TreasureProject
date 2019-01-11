@@ -1,7 +1,7 @@
-﻿<Application x:Class="TreasureProjectWPF.App"
+﻿<Application x:Class="TreasureServer.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TreasureProjectWPF"
+             xmlns:local="clr-namespace:TreasureServer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

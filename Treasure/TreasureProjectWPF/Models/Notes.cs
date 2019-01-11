@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TreasureProjectWPF.Models
 {
@@ -34,24 +35,16 @@ namespace TreasureProjectWPF.Models
             }
         }
 
-        
+        //GetNotes не относится к этому классу, способ получения данных не должен быть описан в самих данных. Если я потом захочу получать не с сервера, а с другого места? или с нескольких? переписывать класс данных?
 
-        public static Note[] GetNotes() //Коллекция заметок
+        public static ObservableCollection<Note> GetNotes() //Коллекция заметок
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
-            var json = client.GetStringAsync($"api/users");
+            var json = client.GetStringAsync($"api/notes");
+            ObservableCollection<Note> notes = JsonConvert.DeserializeObject<ObservableCollection<Note>>(json.Result);
             
-           // ObservableCollection<> notes = new ObservableCollection<>();
-           // notes =  JsonConvert.DeserializeObject<ObservableCollection<Note>>(json.Result);
-            
-            var result = new[]
-            {
-                new Note() {Header = "Zametka 1", Text = "RAZDVATRI" },
-                new Note() {Header = "Zametka 2", Text = "" },
-                new Note() {Header = "Zametka 3", Text = "RAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYATRAZDVATRICHERTYREPYAT" }
-            };
-            return result;
+            return notes;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -60,6 +53,5 @@ namespace TreasureProjectWPF.Models
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
-        
     }
 }

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 using TreasureProjectWPF.Models;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace TreasureProjectWPF.ViewModels
 {
     public class NotesViewModel : INotifyPropertyChanged
     {
-        Note[] notes;
-        public Note[] Notes
+       // ObservableCollection<Note> notes;
+        //Note[] notes;
+        public ObservableCollection<Note> Notes
         {
             get;
             private set;

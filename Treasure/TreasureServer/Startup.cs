@@ -11,9 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using TreasureProjectWPF.DataBase;
+using TreasureServer.DataBase;
 
-namespace TreasureProjectWPF
+namespace TreasureServer
 {
     public class Startup
     {

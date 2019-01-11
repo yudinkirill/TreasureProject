@@ -22,7 +22,7 @@ namespace TreasureProjectWPF.Views
     {
         public Login()
         {
-            InitializeComponent();
+          //  InitializeComponent();
         }
     }
 }

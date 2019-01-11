@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TreasureProjectWPF.DataBase;
+using TreasureServer.DataBase;
 
-namespace TreasureProjectWPF.Controllers
+namespace TreasureServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TreasureProjectWPF.Properties
+namespace TreasureServer.Properties
 {
 
 

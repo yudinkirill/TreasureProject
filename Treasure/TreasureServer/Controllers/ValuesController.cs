@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TreasureProjectWPF.Controllers
+namespace TreasureServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
