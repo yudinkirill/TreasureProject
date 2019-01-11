@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,24 +18,25 @@ using TreasureProjectWPF.ViewModels;
 namespace TreasureProjectWPF.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Notes.xaml
+    /// Логика взаимодействия для Add.xaml
     /// </summary>
-    public partial class Notes : Page
+    public partial class Add : Page
     {
-        public Notes()
+
+        public Add()
         {
             InitializeComponent();
-            DataContext = new NotesViewModel();
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Add());
-        }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+            //устанавливаем DataContext - свойство, отвечающее за источник привязки
+            DataContext = new AddNoteViewModel(4);
+        }       
+
+
+        
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.GoBack();
         }
     }
 }

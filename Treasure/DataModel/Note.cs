@@ -8,7 +8,7 @@ namespace DataModel
     {
         string header;
         string text;
-        public string Header
+        public string NoteHeader
         {
             get { return header; }
             set
@@ -18,7 +18,7 @@ namespace DataModel
             }
         }
 
-        public string Text
+        public string NoteText
         {
             get { return text; }
             set
@@ -27,8 +27,13 @@ namespace DataModel
                 OnPropertyChanged();
             }
         }
+        public int NoteId { get; set; }
+        public bool Pin { get; set; }
 
-        //GetNotes не относится к этому классу, способ получения данных не должен быть описан в самих данных. Если я потом захочу получать не с сервера, а с другого места? или с нескольких? переписывать класс данных?
+
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged([CallerMemberName]string propertyName = "")

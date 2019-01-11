@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -92,6 +93,7 @@ namespace TreasureServer.Controllers
 
             _context.Notes.Add(note);
             await _context.SaveChangesAsync();
+            //???че эт такое? дефолт? дефолт другой
 
             return CreatedAtAction("GetNote", new { id = note.NoteId }, note);
         }
