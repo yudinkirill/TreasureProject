@@ -38,5 +38,7 @@ namespace TreasureProjectWPF.Views
         {
             NavigationService.GoBack();
         }
+
+
     }
 }

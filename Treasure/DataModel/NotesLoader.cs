@@ -38,7 +38,10 @@ namespace DataModel
 
             var response = client.PostAsync($"api/notes", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 
+            
+
             return response.IsCompleted;
+            
         }
 
         //public static bool EditItem(Client item, int id)

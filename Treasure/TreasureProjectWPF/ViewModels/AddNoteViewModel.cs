@@ -12,6 +12,7 @@ using System.Windows.Input;
 using TreasureProjectWPF.Views;
 using System.Windows.Data;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace TreasureProjectWPF.ViewModels
 {
@@ -26,8 +27,6 @@ namespace TreasureProjectWPF.ViewModels
                 (param) => NotesLoader.AddItem(NewNote),
                 check//если текст не заполнен, команда добавить не будет активна
             );
-
-
         }
 
         bool check(object p)
