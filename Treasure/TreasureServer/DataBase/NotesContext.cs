@@ -2,7 +2,7 @@
 using System;
 
 
-namespace TreasureServer.DataBase
+namespace TreasureProjectWPF.DataBase
 {
     public class NotesContext : DbContext
     {

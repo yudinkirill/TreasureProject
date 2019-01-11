@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TreasureServer.DataBase
+namespace TreasureProjectWPF.DataBase
 {
     public class Note
     {

@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TreasureServer.DataBase;
 
-namespace WpfApp1
+namespace TreasureWPF
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
