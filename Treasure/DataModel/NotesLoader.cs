@@ -16,7 +16,7 @@ namespace DataModel
         public static ObservableCollection<Note> GetNotes() //Коллекция заметок
         {
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
+            client.BaseAddress = new Uri($"http://localhost:5000/");
             var json = client.GetStringAsync($"api/notes");
             ObservableCollection<Note> notes = JsonConvert.DeserializeObject<ObservableCollection<Note>>(json.Result);
 
@@ -27,36 +27,27 @@ namespace DataModel
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
-            //Note note = new Note()
-            //{
-                
-            //    NoteHeader = "ыыы",
-            //    NoteText = "аыфаывфа",
-            //    UserId = "4"
-            //};
             var serializedItem = JsonConvert.SerializeObject(note);
-
             var response = client.PostAsync($"api/notes", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
-
-            
 
             return response.IsCompleted;
             
         }
 
-        //public static bool EditItem(Client item, int id)
-        //{
-        //    HttpClient client = new HttpClient();
-        //    client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
+       
 
-        //    var serializedItem = JsonConvert.SerializeObject(item);
+        public static bool EditItem(Note note)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
+            var serializedItem = JsonConvert.SerializeObject(note);
+            var buffer = Encoding.UTF8.GetBytes(serializedItem);
+            var byteContent = new ByteArrayContent(buffer);
+            var response = client.PutAsync(new Uri($"api/notes/{note.NoteId}"), byteContent);
+            
+            return response.IsCompleted;
+        }
 
-        //    var response = client.PutAsync(new Uri($"api/notes/{id}")).Result;
-
-        //    //Content.ReadAsStringAsync() - сериализованное в json значение, возвращенное Post фуункцией
-
-        //    return response.IsSuccessStatusCode;
-        //}
         /// <summary>
         /// Запрос на удаление ноты по ее id
         /// </summary>

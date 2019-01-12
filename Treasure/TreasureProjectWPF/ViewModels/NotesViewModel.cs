@@ -11,13 +11,17 @@ using DataModel;
 using System.Windows.Input;
 using System.Windows.Data;
 using System.Windows;
+using System.Runtime.CompilerServices;
 
 namespace TreasureProjectWPF.ViewModels
 {
     public class NotesViewModel : INotifyPropertyChanged
     {
         ObservableCollection<Note> notes;
-        
+
+        public ICommand Remove { get; private set; }
+        public ICommand Update { get; private set; }
+
         //Note[] notes;
         public ObservableCollection<Note> Notes
         {
@@ -33,12 +37,12 @@ namespace TreasureProjectWPF.ViewModels
             }
         }
 
-        public ICommand Remove { get; private set; }
-        public ICommand Update { get; private set; }
+     
+
         public NotesViewModel()
         {
             Notes = NotesLoader.GetNotes();
-          //  Update = new DelegateCommand(EditNote);
+            Update = new DelegateCommand(EditNote);
             Remove = new DelegateCommand(DeleteNote, CanRemoveNote);
         }
 
@@ -62,28 +66,30 @@ namespace TreasureProjectWPF.ViewModels
 
         }
 
+            
 
-        //void EditNote(object obj)
-        //{
-        //    var selectedNote = CollectionViewSource.GetDefaultView(notes).CurrentItem as Note;
-        //    Notes.Update((Note)obj);
-        //    if (NotesLoader.EditItem((obj as Note).NoteId))
-        //    {
-        //        //сервер вернул true - элемент удален
-        //    }
-        //    else
-        //    {
-        //        //false - такой элемент не найден
-        //    }
-        //}
+        void EditNote(object obj)
+        {
+           // var selectedNote = CollectionViewSource.GetDefaultView(notes).CurrentItem as Note;
+            var selectedNote = (Note)obj;
+            NotesLoader.EditItem(selectedNote);
+        }
 
-     
+
+
         public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged(string propertyName)
+        void OnPropertyChanged([CallerMemberName]string propertyName = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //}
     }
 
 }

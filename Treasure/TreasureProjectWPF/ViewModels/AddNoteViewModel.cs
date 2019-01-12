@@ -19,6 +19,7 @@ namespace TreasureProjectWPF.ViewModels
     public class AddNoteViewModel : INotifyPropertyChanged
     {
         public ICommand Add { get; private set; }
+
         public AddNoteViewModel(int userId)
         {
             NewNote = new Note() { UserId = userId };  //userId надо как то сюда передать
