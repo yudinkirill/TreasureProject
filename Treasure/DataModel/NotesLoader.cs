@@ -43,9 +43,7 @@ namespace DataModel
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri($"http://127.0.0.1:5000/");
             var serializedItem = JsonConvert.SerializeObject(note);
-            var buffer = Encoding.UTF8.GetBytes(serializedItem);
-            var byteContent = new ByteArrayContent(buffer);
-            var response = client.PutAsync($"api/notes/{note.NoteId}", byteContent);
+            var response = client.PutAsync($"api/notes/{note.NoteId}", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
             
             return response.IsCompleted;
         }
