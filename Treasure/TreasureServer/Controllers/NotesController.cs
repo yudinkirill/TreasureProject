@@ -51,10 +51,10 @@ namespace TreasureServer.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutNote([FromRoute] int id, [FromBody] Note note)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
             if (id != note.NoteId)
             {

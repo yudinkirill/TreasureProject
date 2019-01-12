@@ -15,12 +15,14 @@ namespace DataModel
         public string adress = "http://127.0.0.1:5000/";
         public static ObservableCollection<Note> GetNotes() //Коллекция заметок
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri($"http://localhost:5000/");
-            var json = client.GetStringAsync($"api/notes");
-            ObservableCollection<Note> notes = JsonConvert.DeserializeObject<ObservableCollection<Note>>(json.Result);
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri($"http://localhost:5000/");
+                var json = client.GetStringAsync($"api/notes");
+                ObservableCollection<Note> notes = JsonConvert.DeserializeObject<ObservableCollection<Note>>(json.Result);
 
-            return notes;
+                return notes;
+            
+            
         }
 
         public static bool AddItem(Note note)
@@ -43,7 +45,7 @@ namespace DataModel
             var serializedItem = JsonConvert.SerializeObject(note);
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
-            var response = client.PutAsync(new Uri($"api/notes/{note.NoteId}"), byteContent);
+            var response = client.PutAsync($"api/notes/{note.NoteId}", byteContent);
             
             return response.IsCompleted;
         }
