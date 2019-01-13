@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TreasureProjectMobile"
+             x:Class="TreasureProjectMobile.MainPage"
+             Title="TreasureProject">
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="lbNotes" ItemsSource="{Binding Notes}" SelectedItem="{Binding Notes, Mode=TwoWay}" Grid.Row="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="9*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Entry FontAttributes="Bold" Grid.Column="0" Grid.Row="0"  Width="700" Text="{Binding NoteHeader}" Margin="0,0,5,0"/>
+                            <Entry Grid.Column="0" Grid.Row="1" Width="700" Text="{Binding NoteText}" Margin="0,0,5,0"/>
+                            <Button Text="Save"  Grid.Column="1" Grid.Row="0" Width="65" Command="{Binding Path= DataContext.Update}"/>
+                            <Button Text="Delete"  Grid.Column="1" Grid.Row="1" Width="65" 
+                               Command="{Binding Path= DataContext.Remove}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="1" Text="Add" Clicked="AddButton_Click"/>
+        </Grid>
+
+
+</ContentPage>
