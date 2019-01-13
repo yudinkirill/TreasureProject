@@ -1,23 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TreasureProjectMobile.Add">
+             x:Class="TreasureProjectMobile.Add"
+             Title="Add New Note">
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="8*"/>
+                
+                <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="9*"/>
+                <RowDefinition Height="8*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             
-            <Entry Text="{Binding Path=NewNote.NoteHeader}"  Grid.Column="1"/>
-            <Entry Text="{Binding Path=NewNote.NoteText}"  Grid.Column="1" Grid.Row="1"/>
-            <Button x:Name="Save" Grid.Column="1" Grid.Row="2" Text="SAVE" Command="{Binding Add}"/>
+            <Entry Text="{Binding Path=NewNote.NoteHeader}" Placeholder="Header..."/>
+            <Entry Text="{Binding Path=NewNote.NoteText}" Grid.Row="1" Placeholder="Text of your note..."/>
+            <Button x:Name="Save" Grid.Row="2" Text="SAVE" Command="{Binding Add}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
