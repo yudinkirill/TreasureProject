@@ -6,34 +6,25 @@
              Title="TreasureProject">
 
 
-        <Grid>
+        <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
-                <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <ListView x:Name="lbNotes" ItemsSource="{Binding Notes}" SelectedItem="{Binding Notes, Mode=TwoWay}" Grid.Row="0">
+        <ListView x:Name="lbNotes" ItemsSource="{Binding Notes}" SelectedItem="{Binding Notes, Mode=TwoWay}" Grid.Row="0" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="0,5,0,5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="9*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Entry FontAttributes="Bold" Grid.Column="0" Grid.Row="0"  Width="700" Text="{Binding NoteHeader}" Margin="0,0,5,0"/>
-                            <Entry Grid.Column="0" Grid.Row="1" Width="700" Text="{Binding NoteText}" Margin="0,0,5,0"/>
-                            <Button Text="Save"  Grid.Column="1" Grid.Row="0" Width="65" Command="{Binding Path= DataContext.Update}"/>
-                            <Button Text="Delete"  Grid.Column="1" Grid.Row="1" Width="65" 
-                               Command="{Binding Path= DataContext.Remove}"/>
-                        </Grid>
+                    <ImageCell
+                        Text="{Binding NoteHeader}"
+                        Detail="{Binding NoteText}" Tapped="ImageCell_Tapped">
+                    </ImageCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Grid.Row="1" Text="Add" Clicked="AddButton_Click"/>
+        
+        <Button Grid.Row="2"  Text="Add" Clicked="AddButton_Click"/>
         </Grid>
 
 

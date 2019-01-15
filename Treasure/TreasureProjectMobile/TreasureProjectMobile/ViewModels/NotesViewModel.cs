@@ -38,15 +38,20 @@ namespace TreasureProjectMobile.ViewModels
             }
         }
 
-     
+        
 
         public NotesViewModel()
         {
-            Notes = NotesLoader.GetNotes();
-            Update = new Command(EditNote);
-            Remove = new Command(DeleteNote, CanRemoveNote);
+            try
+            {
+                Notes = NotesLoader.GetNotes();
+                Update = new Command(EditNote);
+                Remove = new Command(DeleteNote);
+            }
+            finally {  }
         }
 
+        
         bool CanRemoveNote(object arg)
         {
             return (arg as Note) != null;
@@ -56,24 +61,17 @@ namespace TreasureProjectMobile.ViewModels
         {
             var selectedNote = (Note)obj; 
             Notes.Remove((Note)obj);
-            if (NotesLoader.DeleteItemA((obj as Note).NoteId))
-            {
-                //сервер вернул true - элемент удален
-            }
-            else
-            {
-                //false - такой элемент не найден
-            }
-
         }
 
+
+
+        async void EditNote(object obj)
+        {
+            var selectedNote = (Note)obj;
+            await NotesLoader.EditItem(selectedNote);
             
 
-        void EditNote(object obj)
-        {
-           // var selectedNote = CollectionViewSource.GetDefaultView(notes).CurrentItem as Note;
-            var selectedNote = (Note)obj;
-            NotesLoader.EditItem(selectedNote);
+           
         }
 
 

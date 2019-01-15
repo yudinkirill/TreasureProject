@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TreasureProjectMobile.Add"
-             Title="Add New Note">
+             x:Class="TreasureProjectMobile.Edit">
     <ContentPage.Content>
-        <Grid>
+                <Grid>
             <Grid.ColumnDefinitions>
-                
+
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
@@ -15,10 +14,11 @@
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-
-            <Entry Text="{Binding NewNote.NoteHeader}" Placeholder="Header..."/>
-            <Editor Text="{Binding NewNote.NoteText}" Grid.Row="1" Placeholder="Text of your note..."/>
-            <Button x:Name="Save" Grid.Row="2" Text="SAVE" Command="{Binding Add}"/>
+            
+            <Entry   Text="{Binding NoteHeader}" />
+            <Editor Text="{Binding NoteText}" Grid.Row="1" />
+            <Button Text="Save" Grid.Column="0" Grid.Row="2"  Command="{Binding Update}"/>
         </Grid>
+
     </ContentPage.Content>
 </ContentPage>

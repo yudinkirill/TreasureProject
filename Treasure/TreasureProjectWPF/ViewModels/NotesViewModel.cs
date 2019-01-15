@@ -55,7 +55,7 @@ namespace TreasureProjectWPF.ViewModels
         {
             var selectedNote = CollectionViewSource.GetDefaultView(notes).CurrentItem as Note;
             Notes.Remove((Note)obj);
-            if (NotesLoader.DeleteItemA((obj as Note).NoteId))
+            if (NotesLoader.DeleteItem((obj as Note).NoteId))
             {
                 //сервер вернул true - элемент удален
             }

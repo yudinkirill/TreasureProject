@@ -25,8 +25,8 @@ namespace TreasureProjectMobile.ViewModels
             NewNote = new Note() { UserId = userId };  //userId надо как то сюда передать
 
             Add = new Command(
-                (param) => NotesLoader.AddItem(NewNote),
-                check//если текст не заполнен, команда добавить не будет активна
+                (param) => NotesLoader.AddItem(NewNote)
+              
             );
         }
 
